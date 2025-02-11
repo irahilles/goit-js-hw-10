@@ -44,7 +44,7 @@ flatpickr(refs.dateTimePicker, {
   },
 });
 
-// Подія натискання кнопки "Start"
+
 refs.startButton.addEventListener("click", () => {
   if (!userSelectedDate) return;
 
@@ -58,7 +58,6 @@ refs.startButton.addEventListener("click", () => {
     if (timeDiff <= 0) {
       clearInterval(timerInterval);
       resetUI();
-      alert("Time is up!");
       return;
     }
 
@@ -66,7 +65,7 @@ refs.startButton.addEventListener("click", () => {
   }, 1000);
 });
 
-// Оновлення інтерфейсу таймера
+
 function updateTimerDisplay({ days, hours, minutes, seconds }) {
   refs.timerDisplay.days.textContent = addLeadingZero(days);
   refs.timerDisplay.hours.textContent = addLeadingZero(hours);
@@ -74,19 +73,19 @@ function updateTimerDisplay({ days, hours, minutes, seconds }) {
   refs.timerDisplay.seconds.textContent = addLeadingZero(seconds);
 }
 
-// Скидання інтерфейсу
+
 function resetUI() {
   refs.dateTimePicker.disabled = false;
   refs.startButton.disabled = true;
   updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 }
 
-// Додавання провідного нуля
+
 function addLeadingZero(value) {
   return String(value).padStart(2, "0");
 }
 
-// Перетворення мілісекунд у час
+
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
